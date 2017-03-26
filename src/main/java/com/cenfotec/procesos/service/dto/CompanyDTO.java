@@ -3,6 +3,8 @@ package com.cenfotec.procesos.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**

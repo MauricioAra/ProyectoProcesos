@@ -18,7 +18,10 @@
             "name": "Name",
             "description": "Description",
             "technology": "Technology",
-            "device": "Device"
+            "device": "Device",
+            "company": "Company",
+            "task": "Task",
+            "risk": "Risk"
         }
     }
 }

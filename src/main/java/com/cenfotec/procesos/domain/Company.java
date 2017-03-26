@@ -1,9 +1,12 @@
 package com.cenfotec.procesos.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -34,6 +37,10 @@ public class Company implements Serializable {
 
     @Column(name = "logo")
     private String logo;
+
+    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    private Set<Project> projects = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -106,6 +113,31 @@ public class Company implements Serializable {
 
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public Company projects(Set<Project> projects) {
+        this.projects = projects;
+        return this;
+    }
+
+    public Company addProject(Project project) {
+        this.projects.add(project);
+        project.setCompany(this);
+        return this;
+    }
+
+    public Company removeProject(Project project) {
+        this.projects.remove(project);
+        project.setCompany(null);
+        return this;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 
     @Override

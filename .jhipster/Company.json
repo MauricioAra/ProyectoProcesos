@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "company"
+        }
+    ],
     "fields": [
         {
             "fieldName": "name",

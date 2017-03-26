@@ -1,0 +1,26 @@
+{
+    "proyectoProcesosApp": {
+        "risk" : {
+            "home": {
+                "title": "Risks",
+                "createLabel": "Crear nuevo Risk",
+                "createOrEditLabel": "Crear o editar Risk"
+            },
+            "created": "Un nuevo Risk ha sido creado con el identificador {{ param }}",
+            "updated": "Un Risk ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Risk ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Risk {{ id }}?"
+            },
+            "detail": {
+                "title": "Risk"
+            },
+            "name": "Name",
+            "tag": "Tag",
+            "probability": "Probability",
+            "impact": "Impact",
+            "status": "Status",
+            "project": "Project"
+        }
+    }
+}

@@ -1,8 +1,12 @@
 package com.cenfotec.procesos.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,6 +33,18 @@ public class Project implements Serializable {
 
     @Column(name = "device")
     private String device;
+
+    @ManyToOne(optional = false)
+    @NotNull
+    private Company company;
+
+    @OneToMany(mappedBy = "project")
+    @JsonIgnore
+    private Set<Task> tasks = new HashSet<>();
+
+    @OneToMany(mappedBy = "project")
+    @JsonIgnore
+    private Set<Risk> risks = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -88,6 +104,69 @@ public class Project implements Serializable {
 
     public void setDevice(String device) {
         this.device = device;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public Project company(Company company) {
+        this.company = company;
+        return this;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    public Project tasks(Set<Task> tasks) {
+        this.tasks = tasks;
+        return this;
+    }
+
+    public Project addTask(Task task) {
+        this.tasks.add(task);
+        task.setProject(this);
+        return this;
+    }
+
+    public Project removeTask(Task task) {
+        this.tasks.remove(task);
+        task.setProject(null);
+        return this;
+    }
+
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public Set<Risk> getRisks() {
+        return risks;
+    }
+
+    public Project risks(Set<Risk> risks) {
+        this.risks = risks;
+        return this;
+    }
+
+    public Project addRisk(Risk risk) {
+        this.risks.add(risk);
+        risk.setProject(this);
+        return this;
+    }
+
+    public Project removeRisk(Risk risk) {
+        this.risks.remove(risk);
+        risk.setProject(null);
+        return this;
+    }
+
+    public void setRisks(Set<Risk> risks) {
+        this.risks = risks;
     }
 
     @Override

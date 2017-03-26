@@ -3,6 +3,7 @@ package com.cenfotec.procesos.web.rest;
 import com.cenfotec.procesos.ProyectoProcesosApp;
 
 import com.cenfotec.procesos.domain.Project;
+import com.cenfotec.procesos.domain.Company;
 import com.cenfotec.procesos.repository.ProjectRepository;
 import com.cenfotec.procesos.service.ProjectService;
 import com.cenfotec.procesos.service.dto.ProjectDTO;
@@ -99,6 +100,11 @@ public class ProjectResourceIntTest {
                 .description(DEFAULT_DESCRIPTION)
                 .technology(DEFAULT_TECHNOLOGY)
                 .device(DEFAULT_DEVICE);
+        // Add required entity
+        Company company = CompanyResourceIntTest.createEntity(em);
+        em.persist(company);
+        em.flush();
+        project.setCompany(company);
         return project;
     }
 

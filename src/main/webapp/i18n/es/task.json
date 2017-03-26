@@ -20,7 +20,8 @@
             "cost": "Cost",
             "time": "Time",
             "status": "Status",
-            "realHour": "Real Hour"
+            "realHour": "Real Hour",
+            "project": "Project"
         }
     }
 }

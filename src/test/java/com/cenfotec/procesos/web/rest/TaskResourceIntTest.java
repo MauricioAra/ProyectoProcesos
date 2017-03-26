@@ -3,6 +3,7 @@ package com.cenfotec.procesos.web.rest;
 import com.cenfotec.procesos.ProyectoProcesosApp;
 
 import com.cenfotec.procesos.domain.Task;
+import com.cenfotec.procesos.domain.Project;
 import com.cenfotec.procesos.repository.TaskRepository;
 import com.cenfotec.procesos.service.TaskService;
 import com.cenfotec.procesos.service.dto.TaskDTO;
@@ -107,6 +108,11 @@ public class TaskResourceIntTest {
                 .time(DEFAULT_TIME)
                 .status(DEFAULT_STATUS)
                 .realHour(DEFAULT_REAL_HOUR);
+        // Add required entity
+        Project project = ProjectResourceIntTest.createEntity(em);
+        em.persist(project);
+        em.flush();
+        task.setProject(project);
         return task;
     }
 

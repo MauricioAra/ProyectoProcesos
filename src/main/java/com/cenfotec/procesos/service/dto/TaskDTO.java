@@ -3,6 +3,8 @@ package com.cenfotec.procesos.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -26,6 +28,10 @@ public class TaskDTO implements Serializable {
     private Boolean status;
 
     private Double realHour;
+
+    private Long projectId;
+
+    private String projectName;
 
     public Long getId() {
         return id;
@@ -75,6 +81,22 @@ public class TaskDTO implements Serializable {
 
     public void setRealHour(Double realHour) {
         this.realHour = realHour;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     @Override

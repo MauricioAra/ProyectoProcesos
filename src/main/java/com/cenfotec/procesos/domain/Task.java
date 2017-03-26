@@ -40,6 +40,10 @@ public class Task implements Serializable {
     @Column(name = "real_hour")
     private Double realHour;
 
+    @ManyToOne(optional = false)
+    @NotNull
+    private Project project;
+
     public Long getId() {
         return id;
     }
@@ -124,6 +128,19 @@ public class Task implements Serializable {
 
     public void setRealHour(Double realHour) {
         this.realHour = realHour;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public Task project(Project project) {
+        this.project = project;
+        return this;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     @Override

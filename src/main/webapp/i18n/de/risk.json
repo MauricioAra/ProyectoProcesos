@@ -1,0 +1,26 @@
+{
+    "proyectoProcesosApp": {
+        "risk" : {
+            "home": {
+                "title": "Risks",
+                "createLabel": "Risk erstellen",
+                "createOrEditLabel": "Risk erstellen oder bearbeiten"
+            },
+            "created": "Risk erstellt mit ID {{ param }}",
+            "updated": "Risk aktualisiert mit ID {{ param }}",
+            "deleted": "Risk gelöscht mit ID {{ param }}",
+            "delete": {
+                "question": "Soll Risk {{ id }} wirklich dauerhaft gelöscht werden?"
+            },
+            "detail": {
+                "title": "Risk"
+            },
+            "name": "Name",
+            "tag": "Tag",
+            "probability": "Probability",
+            "impact": "Impact",
+            "status": "Status",
+            "project": "Project"
+        }
+    }
+}

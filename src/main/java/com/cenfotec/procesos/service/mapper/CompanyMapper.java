@@ -16,6 +16,7 @@ public interface CompanyMapper {
 
     List<CompanyDTO> companiesToCompanyDTOs(List<Company> companies);
 
+    @Mapping(target = "projects", ignore = true)
     Company companyDTOToCompany(CompanyDTO companyDTO);
 
     List<Company> companyDTOsToCompanies(List<CompanyDTO> companyDTOs);

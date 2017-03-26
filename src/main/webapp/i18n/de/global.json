@@ -8,11 +8,15 @@
             "entities": {
                 "main": "Entitäten",
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "project": "Project",
 =======
                 "company": "Company",
                 "task": "Task",
 >>>>>>> 1e125863a41f68847f875366f6a9a91dea8b2969
+=======
+                "risk": "Risk",
+>>>>>>> 40a550c294035799e4a6c5f3395dad495606b960
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

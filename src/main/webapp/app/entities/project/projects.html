@@ -23,6 +23,7 @@
                     <th><span data-translate="proyectoProcesosApp.project.description">Description</span></th>
                     <th><span data-translate="proyectoProcesosApp.project.technology">Technology</span></th>
                     <th><span data-translate="proyectoProcesosApp.project.device">Device</span></th>
+                    <th><span data-translate="proyectoProcesosApp.project.company">Company</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,6 +34,9 @@
                     <td>{{project.description}}</td>
                     <td>{{project.technology}}</td>
                     <td>{{project.device}}</td>
+                    <td>
+                        <a ui-sref="company-detail({id:project.companyId})">{{project.companyName}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

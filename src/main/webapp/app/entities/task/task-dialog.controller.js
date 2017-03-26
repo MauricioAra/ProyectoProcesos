@@ -5,14 +5,15 @@
         .module('proyectoProcesosApp')
         .controller('TaskDialogController', TaskDialogController);
 
-    TaskDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Task'];
+    TaskDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Task', 'Project'];
 
-    function TaskDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Task) {
+    function TaskDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Task, Project) {
         var vm = this;
 
         vm.task = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.projects = Project.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

@@ -20,6 +20,10 @@
         <dd>
             <span>{{vm.project.device}}</span>
         </dd>
+        <dt><span data-translate="proyectoProcesosApp.project.company">Company</span></dt>
+        <dd>
+            <a ui-sref="company-detail({id:vm.project.companyId})">{{vm.project.companyName}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

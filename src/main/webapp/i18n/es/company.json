@@ -19,7 +19,8 @@
             "description": "Description",
             "telefono": "Telefono",
             "email": "Email",
-            "logo": "Logo"
+            "logo": "Logo",
+            "project": "Project"
         }
     }
 }

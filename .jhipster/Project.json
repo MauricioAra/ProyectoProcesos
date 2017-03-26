@@ -1,6 +1,28 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "task",
+            "otherEntityName": "task",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipName": "risk",
+            "otherEntityName": "risk",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "project"
+        }
+    ],
     "fields": [
         {
             "fieldName": "name",

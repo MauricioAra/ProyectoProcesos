@@ -1,7 +1,10 @@
 package com.cenfotec.procesos.service.dto;
 
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -18,6 +21,10 @@ public class ProjectDTO implements Serializable {
     private String technology;
 
     private String device;
+
+    private Long companyId;
+
+    private String companyName;
 
     public Long getId() {
         return id;
@@ -53,6 +60,22 @@ public class ProjectDTO implements Serializable {
 
     public void setDevice(String device) {
         this.device = device;
+    }
+
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     @Override

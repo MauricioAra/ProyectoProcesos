@@ -5,14 +5,17 @@
         .module('proyectoProcesosApp')
         .controller('ProjectDialogController', ProjectDialogController);
 
-    ProjectDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Project'];
+    ProjectDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Project', 'Company', 'Task', 'Risk'];
 
-    function ProjectDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Project) {
+    function ProjectDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Project, Company, Task, Risk) {
         var vm = this;
 
         vm.project = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.companies = Company.query();
+        vm.tasks = Task.query();
+        vm.risks = Risk.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

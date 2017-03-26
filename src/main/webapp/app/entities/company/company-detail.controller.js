@@ -5,9 +5,9 @@
         .module('proyectoProcesosApp')
         .controller('CompanyDetailController', CompanyDetailController);
 
-    CompanyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Company'];
+    CompanyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Company', 'Project'];
 
-    function CompanyDetailController($scope, $rootScope, $stateParams, previousState, entity, Company) {
+    function CompanyDetailController($scope, $rootScope, $stateParams, previousState, entity, Company, Project) {
         var vm = this;
 
         vm.company = entity;
