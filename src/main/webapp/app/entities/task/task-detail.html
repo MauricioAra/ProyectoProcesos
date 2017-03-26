@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="proyectoProcesosApp.task.detail.title">Task</span> {{vm.task.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="proyectoProcesosApp.task.name">Name</span></dt>
+        <dd>
+            <span>{{vm.task.name}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.task.description">Description</span></dt>
+        <dd>
+            <span>{{vm.task.description}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.task.cost">Cost</span></dt>
+        <dd>
+            <span>{{vm.task.cost}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.task.time">Time</span></dt>
+        <dd>
+            <span>{{vm.task.time}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.task.status">Status</span></dt>
+        <dd>
+            <span>{{vm.task.status}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.task.realHour">Real Hour</span></dt>
+        <dd>
+            <span>{{vm.task.realHour}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.task.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.task.projectId})">{{vm.task.projectName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="task-detail.edit({id:vm.task.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

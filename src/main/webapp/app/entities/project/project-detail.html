@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="proyectoProcesosApp.project.detail.title">Project</span> {{vm.project.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="proyectoProcesosApp.project.name">Name</span></dt>
+        <dd>
+            <span>{{vm.project.name}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.project.description">Description</span></dt>
+        <dd>
+            <span>{{vm.project.description}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.project.technology">Technology</span></dt>
+        <dd>
+            <span>{{vm.project.technology}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.project.device">Device</span></dt>
+        <dd>
+            <span>{{vm.project.device}}</span>
+        </dd>
+        <dt><span data-translate="proyectoProcesosApp.project.company">Company</span></dt>
+        <dd>
+            <a ui-sref="company-detail({id:vm.project.companyId})">{{vm.project.companyName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="project-detail.edit({id:vm.project.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
