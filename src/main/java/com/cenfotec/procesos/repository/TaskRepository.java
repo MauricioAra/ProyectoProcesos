@@ -11,5 +11,6 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface TaskRepository extends JpaRepository<Task,Long> {
+    public List<Task> findByProjectId(Long id);
 
 }

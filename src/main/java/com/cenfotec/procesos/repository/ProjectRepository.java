@@ -11,5 +11,5 @@ import java.util.List;
  */
 @SuppressWarnings("unused")
 public interface ProjectRepository extends JpaRepository<Project,Long> {
-
+    public List<Project> findByCompanyId(Long id);
 }

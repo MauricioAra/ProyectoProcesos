@@ -1,39 +1,154 @@
-
-<div>
-    <h2><span data-translate="proyectoProcesosApp.project.detail.title">Project</span> {{vm.project.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="row jh-entity-details">
-        <dt><span data-translate="proyectoProcesosApp.project.name">Name</span></dt>
-        <dd>
-            <span>{{vm.project.name}}</span>
-        </dd>
-        <dt><span data-translate="proyectoProcesosApp.project.description">Description</span></dt>
-        <dd>
-            <span>{{vm.project.description}}</span>
-        </dd>
-        <dt><span data-translate="proyectoProcesosApp.project.technology">Technology</span></dt>
-        <dd>
-            <span>{{vm.project.technology}}</span>
-        </dd>
-        <dt><span data-translate="proyectoProcesosApp.project.device">Device</span></dt>
-        <dd>
-            <span>{{vm.project.device}}</span>
-        </dd>
-        <dt><span data-translate="proyectoProcesosApp.project.company">Company</span></dt>
-        <dd>
-            <a ui-sref="company-detail({id:vm.project.companyId})">{{vm.project.companyName}}</a>
-        </dd>
-    </dl>
-
-    <button type="submit"
-            ui-sref="{{ vm.previousState }}"
-            class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
-    </button>
-
-    <button type="button" ui-sref="project-detail.edit({id:vm.project.id})" class="btn btn-primary">
-        <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
-    </button>
+<div class="container-fluid">
+    <div class="row">
+        <div class="header">
+            <h2 style="text-align:center">{{vm.project.name}}</h2>
+            <div class="col-xs-4 no-padding-left">
+                <md-button type="submit"
+                           ui-sref="{{ vm.previousState }}"
+                           class="md-raised">
+                    <span data-translate="entity.action.back">Back</span>
+                </md-button>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="container">
+    <div class="row">
+        <md-card>
+            <md-card-title>
+            </md-card-title>
+            <md-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row form-detail">
+                            <div class="col-md-6">
+                                <dt><span>Name:</span></dt>
+                            </div>
+                            <div class="col-md-6">
+                                <span>{{vm.project.name}}</span>
+                            </div>
+                        </div>
+                        <div class="row form-detail">
+                            <div class="col-md-6">
+                                <dt><span>Description:</span></dt>
+                            </div>
+                            <div class="col-md-6">
+                                <span>{{vm.project.description}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row form-detail">
+                            <div class="col-md-6">
+                                <dt><span>Tecnología:</span></dt>
+                            </div>
+                            <div class="col-md-6">
+                                <span>{{vm.project.technology}}</span>
+                            </div>
+                        </div>
+                        <div class="row form-detail">
+                            <div class="col-md-6">
+                                <dt><span>Dispositivo:</span></dt>
+                            </div>
+                            <div class="col-md-6">
+                                <span>{{vm.project.device}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button type="button" ui-sref="project-detail.edit({id:vm.project.id})" class="md-raised md-primary">
+                    <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Riesgos">
+                    <md-content class="md-padding">
+                        <md-button type="button" ui-sref="project-detail.newRisk({id:vm.project.id})" class="md-raised md-primary">
+                            <span class="hidden-sm-down">Agregar riesgo</span>
+                        </md-button>
+                        <md-table-container>
+                            <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+                                <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                                <tr md-row>
+                                    <th md-column md-order-by="nameToLower"><span>Nombre</span></th>
+                                    <th md-column md-numeric md-order-by="calories.value"><span>Probabilidad</span></th>
+                                    <th md-column md-numeric>Impacto</th>
+                                    <th md-column md-numeric>Etiqueta</th>
+                                    <th md-column md-numeric>Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody md-body>
+                                <tr md-row md-select="history" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="g in vm.risks | filter: vm.buscar | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                    <td md-cell>{{g.name }}</td>
+                                    <td md-cell>{{g.probability}}</td>
+                                    <td md-cell>{{g.impact}}</td>
+                                    <td md-cell>{{g.tag}}</td>
+                                    <td md-cell>
+                                        <!--<md-button ui-sref="project-detail.editRisk({id:g.id})" class="md-fab md-mini md-primary">
+                                            <md-icon><i class="material-icons">mode_edit</i></md-icon>
+                                        </md-button>-->
+                                        <md-button ng-click="vm.deleteRisk(g.id)" class="md-fab md-mini md-primary">
+                                            <md-icon ><i class="material-icons">delete</i></md-icon>
+                                        </md-button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{vm.risks.length}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Tareas">
+                    <md-content class="md-padding">
+                        <md-button type="button" ui-sref="project-detail.newTask({id:vm.project.id})" class="md-raised md-primary">
+                            <span class="hidden-sm-down">Agregar tarea</span>
+                        </md-button>
+                        <md-table-container>
+                            <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+                                <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                                <tr md-row>
+                                    <th md-column md-order-by="nameToLower"><span>Nombre</span></th>
+                                    <th md-column md-numeric md-order-by="calories.value"><span>Descripcion</span></th>
+                                    <th md-column md-numeric>Costo</th>
+                                    <th md-column md-numeric>Hora planeada</th>
+                                    <th md-column md-numeric>Hora real</th>
+                                    <th md-column md-numeric>Estado</th>
+                                    <th md-column md-numeric>Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody md-body>
+                                <tr md-row md-select="history" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="t in vm.tasks | filter: vm.buscar | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                    <td md-cell>{{t.name }}</td>
+                                    <td md-cell>{{t.description}}</td>
+                                    <td md-cell>{{t.cost}}</td>
+                                    <td md-cell>{{t.time}}</td>
+                                    <td md-cell>{{t.realHour}}</td>
+                                    <td md-cell><md-switch ng-model="t.status" aria-label="Switch 1">
+                                    </md-switch></td>
+                                    <td md-cell>
+                                        <!--<md-button ui-sref="project-detail.editRisk({id:g.id})" class="md-fab md-mini md-primary">
+                                            <md-icon><i class="material-icons">mode_edit</i></md-icon>
+                                        </md-button>-->
+                                        <md-button ng-click="vm.deleteTask(t.id)" class="md-fab md-mini md-primary">
+                                            <md-icon ><i class="material-icons">delete</i></md-icon>
+                                        </md-button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </md-table-container>
+                        <md-table-pagination md-limit="query.limitR" md-limit-options="limitOptionsR" md-page="query.pageR" md-total="{{vm.tasks.length}}" md-page-select="options.pageSelectR" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </div>
+    </div>
+</div>
+

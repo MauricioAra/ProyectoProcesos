@@ -75,6 +75,7 @@ public class TaskDTO implements Serializable {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
     public Double getRealHour() {
         return realHour;
     }

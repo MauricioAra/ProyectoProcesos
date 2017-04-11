@@ -1,5 +1,6 @@
 package com.cenfotec.procesos.web.rest;
 
+import com.cenfotec.procesos.service.dto.ProjectDTO;
 import com.codahale.metrics.annotation.Timed;
 import com.cenfotec.procesos.service.CompanyService;
 import com.cenfotec.procesos.web.rest.util.HeaderUtil;
@@ -28,7 +29,7 @@ public class CompanyResource {
     private final Logger log = LoggerFactory.getLogger(CompanyResource.class);
 
     private static final String ENTITY_NAME = "company";
-        
+
     private final CompanyService companyService;
 
     public CompanyResource(CompanyService companyService) {
@@ -101,6 +102,20 @@ public class CompanyResource {
         log.debug("REST request to get Company : {}", id);
         CompanyDTO companyDTO = companyService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(companyDTO));
+    }
+
+    /**
+     * GET  /companies/project/:id : get the "id" company.
+     *
+     * @param id the id of the companyDTO to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the companyDTO, or with status 404 (Not Found)
+     */
+    @GetMapping("/companies/projects/{id}")
+    @Timed
+    public List<ProjectDTO> getProjectsByCompany(@PathVariable Long id) {
+        log.debug("REST request to get Company : {}", id);
+         List<ProjectDTO> projectDTOs = companyService.findProjectsBycompanies(id);
+        return projectDTOs;
     }
 
     /**

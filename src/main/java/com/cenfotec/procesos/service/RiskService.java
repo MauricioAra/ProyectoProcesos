@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 public class RiskService {
 
     private final Logger log = LoggerFactory.getLogger(RiskService.class);
-    
+
     private final RiskRepository riskRepository;
 
     private final RiskMapper riskMapper;
@@ -46,8 +47,32 @@ public class RiskService {
     }
 
     /**
+     * Save a risk.
+     *
+     * @return the persisted entity
+     */
+    public List<RiskDTO> findAllByProjectId(Long id) {
+        List<RiskDTO> riskDTOs = new ArrayList<>();
+        List<Risk> risks = riskRepository.findByProjectId(id);
+
+        for (int i = 0; i < risks.size(); i++){
+            RiskDTO riskDTO = new RiskDTO();
+
+            riskDTO.setId(risks.get(i).getId());
+            riskDTO.setName(risks.get(i).getName());
+            riskDTO.setImpact(risks.get(i).getImpact());
+            riskDTO.setProbability(risks.get(i).getProbability());
+            riskDTO.setProjectId(risks.get(i).getProject().getId());
+            riskDTO.setTag(risks.get(i).getTag());
+            riskDTOs.add(riskDTO);
+        }
+
+        return riskDTOs;
+    }
+
+    /**
      *  Get all the risks.
-     *  
+     *
      *  @return the list of entities
      */
     @Transactional(readOnly = true)

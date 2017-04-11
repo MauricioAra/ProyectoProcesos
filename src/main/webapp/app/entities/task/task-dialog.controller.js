@@ -14,6 +14,7 @@
         vm.clear = clear;
         vm.save = save;
         vm.projects = Project.query();
+        vm.id = $stateParams.id;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -24,10 +25,16 @@
         }
 
         function save () {
+            console.log(vm.task);
+
             vm.isSaving = true;
             if (vm.task.id !== null) {
+                vm.task.projectId = vm.id;
                 Task.update(vm.task, onSaveSuccess, onSaveError);
             } else {
+                vm.task.projectId = vm.id;
+                vm.task.status = false;
+                vm.task.realHour = 0;
                 Task.save(vm.task, onSaveSuccess, onSaveError);
             }
         }
