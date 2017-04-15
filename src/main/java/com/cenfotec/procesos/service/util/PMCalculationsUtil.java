@@ -119,7 +119,8 @@ public final class PMCalculationsUtil {
 				completedTasks = completedTasks + 1;
 			}
 		}
-		projectCompletionPercent = (totalTasks * completedTasks) / 100;
+		projectCompletionPercent = totalTasks * completedTasks;
+		projectCompletionPercent = projectCompletionPercent / 100;
 
 		return projectCompletionPercent;
 	}
@@ -132,7 +133,9 @@ public final class PMCalculationsUtil {
 		double hoursToDate = 0;
 
 		for (Task task : tasks) {
-			hoursToDate = hoursToDate + task.getRealHour();
+			if (task.getRealHour() != null) {
+				hoursToDate = hoursToDate + task.getRealHour();
+			}
 		}
 		return hoursToDate;
 	}
