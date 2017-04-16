@@ -1,5 +1,6 @@
 package com.cenfotec.procesos.web.rest;
 
+import com.cenfotec.procesos.service.dto.MatrixDTO;
 import com.codahale.metrics.annotation.Timed;
 import com.cenfotec.procesos.service.RiskService;
 import com.cenfotec.procesos.web.rest.util.HeaderUtil;
@@ -103,6 +104,12 @@ public class RiskResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(riskDTO));
     }
 
+    @GetMapping("/risks/matrix/{id}")
+    @Timed
+    public MatrixDTO getMatrixRisk(@PathVariable Long id) {
+        MatrixDTO matrixDTO = riskService.createMatrix(id);
+        return matrixDTO;
+    }
 
     /**
      * GET  /risks/:id : get the "id" risk.

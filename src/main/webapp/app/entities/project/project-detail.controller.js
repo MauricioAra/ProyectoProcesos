@@ -21,6 +21,7 @@
         function init(){
             getRisks();
             getTask();
+            getRisksMatrix();
         }
         init();
 
@@ -36,6 +37,14 @@
             $http.get('http://localhost:9000/api/risks/project/'+ vm.project.id)
                 .success(function(data){
                     vm.risks = data;
+                });
+        }
+
+        function getRisksMatrix(){
+            $http.get('http://localhost:9000/api/risks/matrix/'+ vm.project.id)
+                .success(function(data){
+                    console.log(data);
+                    vm.matrix = data;
                 });
         }
 

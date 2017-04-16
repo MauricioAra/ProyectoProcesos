@@ -62,45 +62,45 @@
         vm.validateTag = function(){
             if(vm.impact != null){
                 if(vm.probability == 1 && vm.impact == 1){
-                    vm.risk.tag = "A-5";
+                    vm.risk.tag = "A1";
                 }else if(vm.probability == 1 && vm.impact == 2){
-                    vm.risk.tag = "A-10";
+                    vm.risk.tag = "A2";
                 }else if(vm.probability == 1 && vm.impact == 3){
-                    vm.risk.tag = "E-15";
+                    vm.risk.tag = "A3";
                 }else if(vm.probability == 1 && vm.impact == 4){
-                    vm.risk.tag = "E-20";
+                    vm.risk.tag = "A4";
                 }else if(vm.probability == 1 && vm.impact == 5){
-                    vm.risk.tag = "E-25";
+                    vm.risk.tag = "A5";
                 }else if(vm.probability == 2 && vm.impact == 1){
-                    vm.risk.tag = "M-4";
+                    vm.risk.tag = "B1";
                 }else if(vm.probability == 2 && vm.impact == 2){
-                    vm.risk.tag = "A-8";
+                    vm.risk.tag = "B2";
                 }else if(vm.probability == 2 && vm.impact == 3){
-                    vm.risk.tag = "A-12";
+                    vm.risk.tag = "B3";
                 }else if(vm.probability == 2 && vm.impact == 4){
-                    vm.risk.tag = "E-16";
+                    vm.risk.tag = "B4";
                 }else if(vm.probability == 2 && vm.impact == 5){
-                    vm.risk.tag = "E-20";
+                    vm.risk.tag = "B5";
                 }else if(vm.probability == 3 && vm.impact == 1){
-                    vm.risk.tag = "B-3";
+                    vm.risk.tag = "C1";
                 }else if(vm.probability == 3 && vm.impact == 2){
-                    vm.risk.tag = "M-6";
+                    vm.risk.tag = "C2";
                 }else if(vm.probability == 3 && vm.impact == 3){
-                    vm.risk.tag = "A-9";
+                    vm.risk.tag = "C3";
                 }else if(vm.probability == 3 && vm.impact == 4){
-                    vm.risk.tag = "E-12";
+                    vm.risk.tag = "C4";
                 }else if(vm.probability == 3 && vm.impact == 5){
-                    vm.risk.tag = "E-15";
+                    vm.risk.tag = "C5";
                 }else if(vm.probability == 4 && vm.impact == 1){
-                    vm.risk.tag = "B-2";
+                    vm.risk.tag = "D1";
                 }else if(vm.probability == 4 && vm.impact == 2){
-                    vm.risk.tag = "B-4";
+                    vm.risk.tag = "D2";
                 }else if(vm.probability == 4 && vm.impact == 3){
-                    vm.risk.tag = "M-6";
+                    vm.risk.tag = "D3";
                 }else if(vm.probability == 4 && vm.impact == 4){
-                    vm.risk.tag = "A-8";
+                    vm.risk.tag = "D4";
                 }else if(vm.probability == 4 && vm.impact == 5){
-                    vm.risk.tag = "E-10";
+                    vm.risk.tag = "D5";
                 }
             }
         }

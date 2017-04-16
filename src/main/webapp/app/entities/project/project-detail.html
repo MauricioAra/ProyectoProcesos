@@ -147,6 +147,135 @@
                         <md-table-pagination md-limit="query.limitR" md-limit-options="limitOptionsR" md-page="query.pageR" md-total="{{vm.tasks.length}}" md-page-select="options.pageSelectR" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
                     </md-content>
                 </md-tab>
+                <md-tab label="Matriz de riesgo">
+                    <div class="asphalt" style="min-height: 50px;text-align: center">
+                        <h4>Impacto</h4>
+                    </div>
+                    <table class="table">
+                        <tr class="tr">
+                            <th class="th asphalt"><h4>Probabilidad</h4></th>
+                            <th class="th asphalt"><h5>Insignificante</h5></th>
+                            <th class="th asphalt"><h5>Menor</h5></th>
+                            <th class="th asphalt"><h5>Moderado</h5></th>
+                            <th class="th asphalt"><h5>Mayor</h5></th>
+                            <th class="th asphalt"><h5>Catastrófico</h5></th>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td asphalt"><h5>Frecuente</h5></td>
+                            <td class="td orange">
+                                <ul>
+                                    <li ng-repeat="a1 in vm.matrix.a1"><a class="white">{{a1.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td orange">
+                                <ul>
+                                    <li ng-repeat="a2 in vm.matrix.a2"><a class="white">{{a2.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="a3 in vm.matrix.a3"><a class="white">{{a3.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="a4 in vm.matrix.a4"><a class="white">{{a4.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="a5 in vm.matrix.a5"><a class="white">{{a5.name}}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td asphalt"><h5>Probable</h5></td>
+                            <td class="td yellow">
+                                <ul>
+                                    <li ng-repeat="b1 in vm.matrix.b1"><a class="white">{{b1.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td orange">
+                                <ul>
+                                    <li ng-repeat="b2 in vm.matrix.b2"><a class="white">{{b2.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td orange">
+                                <ul>
+                                    <li ng-repeat="b3 in vm.matrix.b3"><a class="white">{{b3.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="b4 in vm.matrix.b4"><a class="white">{{b4.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="b5 in vm.matrix.b5"><a class="white">{{b5.name}}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td asphalt"><h5>Posible</h5></td>
+                            <td class="td green">
+                                <ul>
+                                    <li ng-repeat="c1 in vm.matrix.c1"><a class="white">{{c1.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td yellow">
+                                <ul>
+                                    <li ng-repeat="c2 in vm.matrix.c2"><a class="white">{{c2.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td orange">
+                                <ul>
+                                    <li ng-repeat="c3 in vm.matrix.c3"><a class="white">{{c3.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="c4 in vm.matrix.c4"><a class="white">{{c4.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="c5 in vm.matrix.c5"><a class="white">{{c5.name}}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td asphalt"><h5>Improbable</h5></td>
+                            <td class="td green">
+                                <ul>
+                                    <li ng-repeat="d1 in vm.matrix.d1"><a class="white">{{d1.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td green">
+                                <ul>
+                                    <li ng-repeat="d2 in vm.matrix.d2"><a class="white">{{d2.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td yellow">
+                                <ul>
+                                    <li ng-repeat="d3 in vm.matrix.d3"><a class="white">{{d3.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td orange">
+                                <ul>
+                                    <li ng-repeat="d4 in vm.matrix.d4"><a class="white">{{d4.name}}</a></li>
+                                </ul>
+                            </td>
+                            <td class="td red">
+                                <ul>
+                                    <li ng-repeat="d5 in vm.matrix.d5"><a class="white">{{d5.name}}</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </md-tab>
             </md-tabs>
         </div>
     </div>
