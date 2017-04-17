@@ -22,6 +22,7 @@
             getRisks();
             getTask();
             getRisksMatrix();
+            getEV();
         }
         init();
 
@@ -29,6 +30,13 @@
             $http.get('http://localhost:9000/api/tasks/project/'+ vm.project.id)
                 .success(function(data){
                     vm.tasks = data;
+                });
+        }
+
+        function getEV(){
+            $http.post('http://localhost:9000/api/projects/calculations/'+ vm.project.id)
+                .success(function(data){
+                    vm.results = data;
                     console.log(data);
                 });
         }
@@ -43,7 +51,6 @@
         function getRisksMatrix(){
             $http.get('http://localhost:9000/api/risks/matrix/'+ vm.project.id)
                 .success(function(data){
-                    console.log(data);
                     vm.matrix = data;
                 });
         }
@@ -70,13 +77,6 @@
                     getTask();
                 });
         }
-
-
-
-
-
-
-
         $scope.limitOptions = [5, 10, 15];
         $scope.options = {
             rowSelection: true,

@@ -276,6 +276,55 @@
 
 
                 </md-tab>
+                <md-tab label="Earn value">
+                    <md-table-container>
+                        <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+                            <thead md-head md-order="query.order" md-on-reorder="getDesserts" >
+                            <tr md-row>
+                                <th md-column md-order-by="nameToLower" class="tb-col" style="color: white; font-size: 16px">Cálculo</th>
+                                <th md-column md-numeric md-order-by="calories.value" style="color: white; font-size: 16px"class="tb-col">Resultado</th>
+                            </tr>
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Planned Value</th>
+                                <td md-cell>{{vm.results.plannedValue}}</td>
+                            </tr>
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Earned Value</th>
+                                <td md-cell>{{vm.results.earnedValue}}</td>
+                            </tr>
+
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Actual Cost</th>
+                                <td md-cell>{{vm.results.actualCost}}</td>
+                            </tr>
+
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Schedule Variance</th>
+                                <td md-cell>{{vm.results.scheduleVariance}}</td>
+                            </tr>
+
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Cost Variance</th>
+                                <td md-cell>{{vm.results.costVariance}}</td>
+                            </tr>
+
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">SPI</th>
+                                <td md-cell>{{vm.results.spi}}</td>
+                            </tr>
+
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">CPI</th>
+                                <td md-cell>{{vm.results.cpi}}</td>
+                            </tr>
+                            <tr md-row>
+                                <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">EAC</th>
+                                <td md-cell>{{vm.results.eac}}</td>
+                            </tr>
+                            </thead>
+                        </table>
+                    </md-table-container>
+                </md-tab>
             </md-tabs>
         </div>
     </div>
