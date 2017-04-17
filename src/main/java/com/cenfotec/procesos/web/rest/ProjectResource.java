@@ -3,6 +3,7 @@ package com.cenfotec.procesos.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.cenfotec.procesos.service.ProjectService;
 import com.cenfotec.procesos.web.rest.util.HeaderUtil;
+import com.cenfotec.procesos.service.dto.CalculationsDTO;
 import com.cenfotec.procesos.service.dto.ProjectDTO;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -116,5 +117,10 @@ public class ProjectResource {
         projectService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
-
+    @PostMapping("/projects/calculations/{id}")
+    public ResponseEntity<CalculationsDTO> proyectCalculations(@PathVariable Long id) {
+    	log.debug("REST request to get Project calculations: {}", id);
+    	CalculationsDTO calculationsDTO = projectService.projectCalculations(id);
+    	return ResponseUtil.wrapOrNotFound(Optional.ofNullable(calculationsDTO));
+    }
 }
