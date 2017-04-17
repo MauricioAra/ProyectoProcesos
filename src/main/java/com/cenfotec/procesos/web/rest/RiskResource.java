@@ -1,5 +1,6 @@
 package com.cenfotec.procesos.web.rest;
 
+import com.cenfotec.procesos.service.dto.MatrixDTO;
 import com.codahale.metrics.annotation.Timed;
 import com.cenfotec.procesos.service.RiskService;
 import com.cenfotec.procesos.web.rest.util.HeaderUtil;
@@ -28,7 +29,7 @@ public class RiskResource {
     private final Logger log = LoggerFactory.getLogger(RiskResource.class);
 
     private static final String ENTITY_NAME = "risk";
-        
+
     private final RiskService riskService;
 
     public RiskResource(RiskService riskService) {
@@ -100,6 +101,27 @@ public class RiskResource {
     public ResponseEntity<RiskDTO> getRisk(@PathVariable Long id) {
         log.debug("REST request to get Risk : {}", id);
         RiskDTO riskDTO = riskService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(riskDTO));
+    }
+
+    @GetMapping("/risks/matrix/{id}")
+    @Timed
+    public MatrixDTO getMatrixRisk(@PathVariable Long id) {
+        MatrixDTO matrixDTO = riskService.createMatrix(id);
+        return matrixDTO;
+    }
+
+    /**
+     * GET  /risks/:id : get the "id" risk.
+     *
+     * @param id the id of the riskDTO to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the riskDTO, or with status 404 (Not Found)
+     */
+    @GetMapping("/risks/project/{id}")
+    @Timed
+    public ResponseEntity<List<RiskDTO>> getRiskByProject(@PathVariable Long id) {
+        log.debug("REST request to get Risk : {}", id);
+        List<RiskDTO> riskDTO = riskService.findAllByProjectId(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(riskDTO));
     }
 

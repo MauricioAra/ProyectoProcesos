@@ -28,7 +28,7 @@ public class TaskResource {
     private final Logger log = LoggerFactory.getLogger(TaskResource.class);
 
     private static final String ENTITY_NAME = "task";
-        
+
     private final TaskService taskService;
 
     public TaskResource(TaskService taskService) {
@@ -100,6 +100,14 @@ public class TaskResource {
     public ResponseEntity<TaskDTO> getTask(@PathVariable Long id) {
         log.debug("REST request to get Task : {}", id);
         TaskDTO taskDTO = taskService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(taskDTO));
+    }
+
+    @GetMapping("/tasks/project/{id}")
+    @Timed
+    public ResponseEntity<List<TaskDTO>> findByProjectId(@PathVariable Long id) {
+        log.debug("REST request to get Task : {}", id);
+        List<TaskDTO> taskDTO = taskService.findByProjectId(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(taskDTO));
     }
 

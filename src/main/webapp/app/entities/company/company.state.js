@@ -11,7 +11,7 @@
         $stateProvider
         .state('company', {
             parent: 'entity',
-            url: '/company',
+            url: '/',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'proyectoProcesosApp.company.home.title'
@@ -145,6 +145,37 @@
                 });
             }]
         })
+        .state('company.new-project', {
+            parent: 'company-detail',
+            url: '/newProject/:id',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/project/project-dialog.html',
+                    controller: 'ProjectDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                name: null,
+                                description: null,
+                                technology: null,
+                                device: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('company-detail', null, { reload: 'company-detail' });
+                }, function() {
+                    $state.go('company-detail');
+                });
+            }]
+        })
         .state('company.delete', {
             parent: 'company',
             url: '/{id}/delete',
@@ -168,7 +199,28 @@
                     $state.go('^');
                 });
             }]
-        });
+        })
+        .state('company-detail.editProject', {
+            parent: 'company-detail',
+            url: '/{id}/editProject',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/project/project-dialog.html',
+                    controller: 'ProjectDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg'
+                }).result.then(function() {
+
+                }, function() {
+
+                });
+            }]
+        })
+
     }
 
 })();

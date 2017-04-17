@@ -31,6 +31,18 @@
                 }]
             }
         })
+
+
+
+
+
+
+
+
+
+
+
+
         .state('project-detail', {
             parent: 'project',
             url: '/project/{id}',
@@ -88,6 +100,89 @@
                 });
             }]
         })
+
+        .state('project-detail.newRisk', {
+            parent: 'project-detail',
+            url: '/newRisk/:id',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/risk/risk-dialog.html',
+                    controller: 'RiskDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                name: null,
+                                tag: null,
+                                probability: null,
+                                impact: null,
+                                status: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('project-detail', null, { reload: 'project-detail' });
+                }, function() {
+                    $state.go('project-detail');
+                });
+            }]
+        })
+        .state('project-detail.newTask', {
+            parent: 'project-detail',
+            url: '/newTask/:id',
+            data: {
+                authorities: ['ROLE_USER']
+            },
+            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                $uibModal.open({
+                    templateUrl: 'app/entities/task/task-dialog.html',
+                    controller: 'TaskDialogController',
+                    controllerAs: 'vm',
+                    backdrop: 'static',
+                    size: 'lg',
+                    resolve: {
+                        entity: function () {
+                            return {
+                                name: null,
+                                description: null,
+                                cost: null,
+                                time: null,
+                                status: null,
+                                realHour: null,
+                                id: null
+                            };
+                        }
+                    }
+                }).result.then(function() {
+                    $state.go('project-detail', null, { reload: 'project-detail' });
+                }, function() {
+                    $state.go('project-detail');
+                });
+            }]
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         .state('project.new', {
             parent: 'project',
             url: '/new',

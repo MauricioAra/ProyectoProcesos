@@ -12,4 +12,6 @@ import java.util.List;
 @SuppressWarnings("unused")
 public interface RiskRepository extends JpaRepository<Risk,Long> {
 
+    public List<Risk> findByProjectId(Long id);
+
 }

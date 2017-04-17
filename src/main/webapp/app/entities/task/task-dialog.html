@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myTaskLabel" data-translate="proyectoProcesosApp.task.home.createOrEditLabel">Create or edit a Task</h4>
+        <h4 class="modal-title" id="myTaskLabel">Create or edit a Task</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -14,7 +14,7 @@
                     ng-model="vm.task.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="proyectoProcesosApp.task.name" for="field_name">Name</label>
+            <label class="control-label"  for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="vm.task.name"
                     required/>
@@ -26,13 +26,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="proyectoProcesosApp.task.description" for="field_description">Description</label>
+            <label class="control-label"  for="field_description">Description</label>
             <input type="text" class="form-control" name="description" id="field_description"
                     ng-model="vm.task.description"
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="proyectoProcesosApp.task.cost" for="field_cost">Cost</label>
+            <label class="control-label"  for="field_cost">Cost</label>
             <input type="number" class="form-control" name="cost" id="field_cost"
                     ng-model="vm.task.cost"
                     required/>
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="proyectoProcesosApp.task.time" for="field_time">Time</label>
+            <label class="control-label"  for="field_time">Time</label>
             <input type="number" class="form-control" name="time" id="field_time"
                     ng-model="vm.task.time"
                     required/>
@@ -63,20 +63,20 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="proyectoProcesosApp.task.status" for="field_status">Status</label>
-            <input type="checkbox" class="form-control" name="status" id="field_status"
-                    ng-model="vm.task.status"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="proyectoProcesosApp.task.realHour" for="field_realHour">Real Hour</label>
-            <input type="number" class="form-control" name="realHour" id="field_realHour"
-                    ng-model="vm.task.realHour"
-                    />
-        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="control-label" for="field_status">Status</label>-->
+            <!--<input type="checkbox" class="form-control" name="status" id="field_status"-->
+                    <!--ng-model="vm.task.status"-->
+                    <!--/>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label class="control-label" for="field_realHour">Real Hour</label>-->
+            <!--<input type="number" class="form-control" name="realHour" id="field_realHour"-->
+                    <!--ng-model="vm.task.realHour"-->
+                    <!--/>-->
+        <!--</div>-->
 
-        <div class="form-group">
+        <!--<div class="form-group">
             <label data-translate="proyectoProcesosApp.task.project" for="field_project">Project</label>
             <select class="form-control" id="field_project" name="project" ng-model="vm.task.projectId" ng-options="project.id as project.name for project in vm.projects"             required>
                 <option value=""></option>
@@ -87,7 +87,7 @@
                 ng-show="editForm.project.$error.required" data-translate="entity.validation.required">
                 This field is required.
             </p>
-        </div>
+        </div>-->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ import java.util.stream.Collectors;
 public class TaskService {
 
     private final Logger log = LoggerFactory.getLogger(TaskService.class);
-    
+
     private final TaskRepository taskRepository;
 
     private final TaskMapper taskMapper;
@@ -47,7 +48,7 @@ public class TaskService {
 
     /**
      *  Get all the tasks.
-     *  
+     *
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
@@ -58,6 +59,33 @@ public class TaskService {
             .collect(Collectors.toCollection(LinkedList::new));
 
         return result;
+    }
+
+
+    /**
+     *  Get all the tasks.
+     *
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true)
+    public List<TaskDTO> findByProjectId(Long id) {
+        List<TaskDTO> taskDTOs = new ArrayList<>();
+        List<Task> tasks = taskRepository.findByProjectId(id);
+
+        for(int i = 0; i < tasks.size(); i++){
+            TaskDTO taskDTO = new TaskDTO();
+            taskDTO.setId(tasks.get(i).getId());
+            taskDTO.setName(tasks.get(i).getName());
+            taskDTO.setDescription(tasks.get(i).getDescription());
+            taskDTO.setCost(tasks.get(i).getCost());
+            taskDTO.setStatus(tasks.get(i).isStatus());
+            taskDTO.setCost(tasks.get(i).getCost());
+            taskDTO.setTime(tasks.get(i).getTime());
+            taskDTO.setRealHour(tasks.get(i).getRealHour());
+            taskDTO.setProjectId(tasks.get(i).getProject().getId());
+            taskDTOs.add(taskDTO);
+        }
+        return taskDTOs;
     }
 
     /**
