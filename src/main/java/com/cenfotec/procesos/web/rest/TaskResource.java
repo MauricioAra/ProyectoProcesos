@@ -111,6 +111,13 @@ public class TaskResource {
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(taskDTO));
     }
 
+    @GetMapping("/tasks/finished/{id}/{hour}")
+    @Timed
+    public ResponseEntity<Void> taskFinished(@PathVariable Long id, @PathVariable double hour) {
+        taskService.finishTask(id,hour);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
     /**
      * DELETE  /tasks/:id : delete the "id" task.
      *

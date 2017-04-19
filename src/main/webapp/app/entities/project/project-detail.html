@@ -131,7 +131,7 @@
                                     <td md-cell>{{t.cost}}</td>
                                     <td md-cell>{{t.time}}</td>
                                     <td md-cell>{{t.realHour}}</td>
-                                    <td md-cell><md-switch ng-model="t.status" aria-label="Switch 1">
+                                    <td md-cell><md-switch ng-disabled="t.status == true" ng-change="vm.completed($event,t.id)" ng-model="t.status" aria-label="Switch 1">
                                     </md-switch></td>
                                     <td md-cell>
                                         <!--<md-button ui-sref="project-detail.editRisk({id:g.id})" class="md-fab md-mini md-primary">
