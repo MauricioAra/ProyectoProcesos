@@ -30,8 +30,10 @@
         function save () {
             vm.isSaving = true;
             if (vm.project.id !== null) {
+
                 Project.update(vm.project, onSaveSuccess, onSaveError);
             } else {
+                vm.project.companyId = vm.id;
                 Project.save(vm.project, onSaveSuccess, onSaveError);
             }
         }

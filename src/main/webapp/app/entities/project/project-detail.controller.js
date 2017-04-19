@@ -5,9 +5,9 @@
         .module('proyectoProcesosApp')
         .controller('ProjectDetailController', ProjectDetailController);
 
-    ProjectDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Project', 'Company', 'Task', 'Risk','$http'];
+    ProjectDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Project', 'Company', 'Task', 'Risk','$http','$mdDialog'];
 
-    function ProjectDetailController($scope, $rootScope, $stateParams, previousState, entity, Project, Company, Task, Risk,$http) {
+    function ProjectDetailController($scope, $rootScope, $stateParams, previousState, entity, Project, Company, Task, Risk,$http,$mdDialog) {
         var vm = this;
 
         vm.project = entity;
@@ -77,6 +77,31 @@
                     getTask();
                 });
         }
+
+        vm.completed = function(ev,id) {
+            // Appending dialog to document.body to cover sidenav in docs app
+            var confirm = $mdDialog.prompt()
+                .title('¿Terminaste la tarea?')
+                .textContent('Por favor ingresa las horas que se invirtieron en la tarea.')
+                .placeholder('Horas: ejemplo 1')
+                .ariaLabel('Dog name')
+                .initialValue('')
+                .targetEvent(ev)
+                .ok('Guardar')
+                .cancel('cancelar');
+
+            $mdDialog.show(confirm).then(function(result) {
+                var realHour = parseFloat(result);
+
+                $http.get('http://localhost:9000/api/tasks/finished/'+id+'/'+realHour)
+                    .success(function(data){
+                        init();
+                    });
+            }, function() {
+
+            });
+        };
+
         $scope.limitOptions = [5, 10, 15];
         $scope.options = {
             rowSelection: true,

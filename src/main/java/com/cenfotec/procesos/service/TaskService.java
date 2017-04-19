@@ -102,6 +102,12 @@ public class TaskService {
         return taskDTO;
     }
 
+    public void finishTask(Long id,double hour){
+        Task task = taskRepository.findOne(id);
+        task.setRealHour(hour);
+        task.setStatus(true);
+        taskRepository.save(task);
+    }
     /**
      *  Delete the  task by id.
      *
