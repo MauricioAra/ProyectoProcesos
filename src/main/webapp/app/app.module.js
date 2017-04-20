@@ -19,7 +19,8 @@
             'angular-loading-bar',
             'ngMaterial',
             'angularGrid',
-            'md.data.table'
+            'md.data.table',
+            'angular-js-xlsx'
         ])
         .run(run);
 

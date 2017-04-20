@@ -1,12 +1,12 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="header">
+<div class="header">
+    <div class="container">
+        <div class="row">
             <h2 style="text-align:center">{{vm.company.name}}</h2>
             <div class="col-xs-4 no-padding-left">
                 <md-button type="submit"
                         ui-sref="{{ vm.previousState }}"
-                        class="md-raised">
-                    <span data-translate="entity.action.back">Back</span>
+                        class="md-icon-button">
+                    <md-icon md-svg-src="/content/images/back.svg"></md-icon>
                 </md-button>
             </div>
         </div>
@@ -79,18 +79,18 @@
     <div class="row">
         <div class="col-md-12">
             <div ng-if="vm.projects.length == 0">
-                <h2 style="text-align:center;color: #CCCCCC;">¡NO HAY PROYECTOS!</h2>
+                <h2 style="text-align:center;color: #CCCCCC;">No existen proyectos registrados.</h2>
                 <div layout="row" layout-align="center center">
-                    <md-button type="button" ui-sref="company.new-project({id:vm.company.id})" class="md-raised md-primary">
-                        <span class="hidden-sm-down">Agregar proyecto</span>
+                    <md-button type="button" ui-sref="company.new-project({id:vm.company.id})" class="md-accent md-fab">
+                        <md-icon md-svg-src="/content/images/add.svg"></md-icon>
                     </md-button>
                 </div>
             </div>
             <div ng-if="vm.projects.length > 0">
                 <h2 style="text-align:center;color: #CCCCCC;">PROYECTOS</h2>
                 <div layout="row" layout-align="center center">
-                    <md-button type="button" ui-sref="company.new-project({id:vm.company.id})" class="md-raised md-primary">
-                        <span class="hidden-sm-down">Agregar proyecto</span>
+                    <md-button type="button" ui-sref="company.new-project({id:vm.company.id})" class="md-accent md-fab">
+                        <md-icon md-svg-src="/content/images/add.svg"></md-icon>
                     </md-button>
                 </div>
             </div>

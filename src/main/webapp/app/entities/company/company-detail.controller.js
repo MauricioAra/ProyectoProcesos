@@ -9,7 +9,9 @@
 
     function CompanyDetailController($scope, $rootScope, $stateParams, previousState, entity, Company, Project,$http) {
         var vm = this;
-
+        vm.gridOptions = {};
+        vm.gridOptions.data = [];
+        vm.gridOptions.columnDefs = []
         vm.company = entity;
         vm.previousState = previousState.name;
         vm.areProjects = false;
