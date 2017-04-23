@@ -117,4 +117,12 @@ public class TaskService {
         log.debug("Request to delete Task : {}", id);
         taskRepository.delete(id);
     }
+
+
+    public void bulkTask(List<TaskDTO> taskDTOs){
+        for(int i = 0; i < taskDTOs.size(); i++){
+            Task task = taskMapper.taskDTOToTask(taskDTOs.get(i));
+            taskRepository.save(task);
+        }
+    }
 }

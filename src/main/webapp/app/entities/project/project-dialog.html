@@ -4,39 +4,68 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myProjectLabel">Create or edit a Project</h4>
+        <h4 class="modal-title" id="myProjectLabel">CREAR O ELIMINAR PROYECTO</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.project.id">
-            <label for="id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.project.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.project.name"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label"  for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
-                    ng-model="vm.project.description"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label"  for="field_technology">Technology</label>
-            <input type="text" class="form-control" name="technology" id="field_technology"
-                    ng-model="vm.project.technology"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_device">Device</label>
-            <input type="text" class="form-control" name="device" id="field_device"
-                    ng-model="vm.project.device"
-                    />
-        </div>
+
+        <!--<div class="form-group" ng-show="vm.project.id">-->
+        <!--<label for="id">ID</label>-->
+        <!--<input type="text" class="form-control" id="id" name="id"-->
+        <!--ng-model="vm.project.id" readonly />-->
+        <!--</div>-->
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Nombre</label>
+            <input required name="title"
+                   ng-model="vm.project.name"
+                   type="text">
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Descripción</label>
+            <input required name="title"
+                   ng-model="vm.project.description"
+                   type="text">
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Tecnología</label>
+            <input required name="title"
+                   ng-model="vm.project.technology"
+                   type="text">
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Dispositivo</label>
+            <input required name="title"
+                   ng-model="vm.project.device"
+                   type="text">
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </md-input-container>
 
         <!--<div class="form-group">
             <label data-translate="proyectoProcesosApp.project.company" for="field_company">Company</label>
@@ -52,11 +81,11 @@
         </div>-->
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+        <md-button type="button" class="md-raised" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        </md-button>
+        <md-button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="md-raised md-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
-        </button>
+        </md-button>
     </div>
 </form>

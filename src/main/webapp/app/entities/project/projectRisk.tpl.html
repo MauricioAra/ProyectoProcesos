@@ -1,0 +1,53 @@
+<md-dialog aria-label="Mango (Fruit)">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Detalles</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nombre</label>
+                    <input disabled name="title"
+                           ng-model="risk.name"
+                           type="text">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Probabilidad</label>
+                    <input disabled name="title"
+                           ng-model="risk.probability"
+                           type="text">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Impacto</label>
+                    <input disabled name="title"
+                           ng-model="risk.impact"
+                           type="text">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Tag</label>
+                    <input disabled name="title"
+                           ng-model="risk.tag"
+                           type="text">
+                </md-input-container>
+
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()" class="md-raised md-primary" md-autofocus>
+                cerrar
+            </md-button>
+            <span flex></span>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

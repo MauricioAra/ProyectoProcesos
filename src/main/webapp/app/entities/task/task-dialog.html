@@ -8,61 +8,64 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.task.id">
-            <label for="id" data-translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.task.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label"  for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.task.name"
-                    required/>
+        <!--<div class="form-group" ng-show="vm.task.id">-->
+            <!--<label for="id" data-translate="global.field.id">ID</label>-->
+            <!--<input type="text" class="form-control" id="id" name="id"-->
+                    <!--ng-model="vm.task.id" readonly />-->
+        <!--</div>-->
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Nombre</label>
+            <input required name="title"
+                   ng-model="vm.task.name"
+                   type="text">
             <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label"  for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
-                    ng-model="vm.task.description"
-                    />
-        </div>
-        <div class="form-group">
-            <label class="control-label"  for="field_cost">Cost</label>
-            <input type="number" class="form-control" name="cost" id="field_cost"
-                    ng-model="vm.task.cost"
-                    required/>
-            <div ng-show="editForm.cost.$invalid">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Descripción</label>
+            <input required name="title"
+                   ng-model="vm.task.description"
+                   type="text">
+            <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.cost.$error.required" data-translate="entity.validation.required">
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
-                <p class="help-block"
-                    ng-show="editForm.cost.$error.number" data-translate="entity.validation.number">
-                    This field should be a number.
-                </p>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label"  for="field_time">Time</label>
-            <input type="number" class="form-control" name="time" id="field_time"
-                    ng-model="vm.task.time"
-                    required/>
-            <div ng-show="editForm.time.$invalid">
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Costo</label>
+            <input required name="title"
+                   ng-model="vm.task.cost"
+                   type="number">
+            <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.time.$error.required" data-translate="entity.validation.required">
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Duración</label>
+            <input required name="title"
+                   ng-model="vm.task.time"
+                   type="number">
+            <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.time.$error.number" data-translate="entity.validation.number">
-                    This field should be a number.
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
                 </p>
             </div>
-        </div>
+        </md-input-container>
+
         <!--<div class="form-group">-->
             <!--<label class="control-label" for="field_status">Status</label>-->
             <!--<input type="checkbox" class="form-control" name="status" id="field_status"-->
@@ -90,11 +93,11 @@
         </div>-->
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+        <md-button type="button" class="md-raised" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        </md-button>
+        <md-button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="md-raised md-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
-        </button>
+        </md-button>
     </div>
 </form>

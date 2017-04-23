@@ -50,6 +50,8 @@ module.exports = function (config) {
             'src/main/webapp/bower_components/angular-animate/angular-animate.js',
             'src/main/webapp/bower_components/angular-messages/angular-messages.js',
             'src/main/webapp/bower_components/angular-js-xlsx/angular-js-xlsx.js',
+            'src/main/webapp/bower_components/angular-strap/dist/angular-strap.js',
+            'src/main/webapp/bower_components/angular-strap/dist/angular-strap.tpl.js',
             'src/main/webapp/bower_components/angular-mocks/angular-mocks.js',
             'src/main/webapp/bower_components/angular-material/angular-material.js',
             'src/main/webapp/bower_components/angular-material-data-table/dist/md-data-table.js',

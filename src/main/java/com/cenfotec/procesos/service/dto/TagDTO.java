@@ -9,6 +9,10 @@ public class TagDTO implements Serializable {
 
     private Long id;
     private String name;
+    private String description;
+    private String probability;
+    private String impact;
+    private String tag;
 
     public TagDTO(){}
 
@@ -26,5 +30,36 @@ public class TagDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getProbability() {
+        return probability;
+    }
+
+    public void setProbability(String probability) {
+        this.probability = probability;
+    }
+
+    public String getImpact() {
+        return impact;
+    }
+
+    public void setImpact(String impact) {
+        this.impact = impact;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }
