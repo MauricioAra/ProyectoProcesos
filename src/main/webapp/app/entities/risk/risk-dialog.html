@@ -8,33 +8,32 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.risk.id">
-            <label for="id" data-translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.risk.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.risk.name"
-                    required/>
+        <!--<div class="form-group" ng-show="vm.risk.id">-->
+            <!--<label for="id" data-translate="global.field.id">ID</label>-->
+            <!--<input type="text" class="form-control" id="id" name="id"-->
+                    <!--ng-model="vm.risk.id" readonly />-->
+        <!--</div>-->
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Nombre</label>
+            <input required name="title"
+                   ng-model="vm.risk.name"
+                   type="text">
             <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                   ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
-        </div>
+        </md-input-container>
+
         <div class="form-group">
             <label class="control-label">Probabilidad</label>
             <select class="form-control" name="project" ng-model="vm.probability" ng-change="vm.validateTag()" >
                 <option value="" disabled>Probabilidad</option>
                 <option ng-repeat="probability in vm.probabilities" value="{{probability.tag}}">{{probability.name}}</option>
             </select>
-            <!--<label class="control-label"  for="field_probability">Probability</label>-->
-            <!--<input type="text" class="form-control" name="probability" id="field_probability"-->
-                    <!--ng-model="vm.risk.probability"-->
-                    <!--/>-->
+
         </div>
         <div class="form-group">
             <label class="control-label" >Impacto</label>
@@ -43,18 +42,15 @@
                 <option ng-repeat="impact in vm.impacts" value="{{impact.tag}}">{{impact.name}}</option>
             </select>
         </div>
-        <div class="form-group">
-            <label class="control-label" for="field_tag">Tag</label>
-            <input disabled type="text" class="form-control" name="tag" id="field_tag"
+
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Tag</label>
+            <input disabled name="title"
                    ng-model="vm.risk.tag"
-            />
-        </div>
-        <!--<div class="form-group">-->
-            <!--<label class="control-label"  for="field_status">Status</label>-->
-            <!--<input type="checkbox" class="form-control" name="status" id="field_status"-->
-                    <!--ng-model="vm.risk.status"-->
-                    <!--/>-->
-        <!--</div>-->
+                   type="text">
+        </md-input-container>
+
+
 
         <!--<div class="form-group">
             <label  for="field_project">Project</label>
@@ -70,11 +66,11 @@
         </div>-->
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+        <md-button type="button" class="md-raised" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit"  class="btn btn-primary">
+        </md-button>
+        <md-button type="submit"  class="md-raised md-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
-        </button>
+        </md-button>
     </div>
 </form>

@@ -77,6 +77,8 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
 <script src="bower_components/angular-js-xlsx/angular-js-xlsx.js"></script>
+<script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+<script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
 <!-- endinject -->
@@ -84,8 +86,10 @@
 
 <!-- build:js app/app.js  -->
 <!-- inject:js -->
-<script src="app/vendor/angular-grid.js"></script>
 <script src="app/app.module.js"></script>
+<script src="app/vendor/loadexcel.js"></script>
+<script src="app/vendor/fileserve.js"></script>
+<script src="app/vendor/angular-grid.js"></script>
 <script src="app/services/user/user.service.js"></script>
 <script src="app/services/profiles/profile.service.js"></script>
 <script src="app/services/profiles/page-ribbon.directive.js"></script>
@@ -122,6 +126,7 @@
 <script src="app/entities/project/project-delete-dialog.controller.js"></script>
 <script src="app/entities/project/project.state.js"></script>
 <script src="app/entities/project/project.service.js"></script>
+<script src="app/entities/project/project.factory.js"></script>
 <script src="app/entities/project/project.controller.js"></script>
 <script src="app/entities/entity.state.js"></script>
 <script src="app/entities/company/company-dialog.controller.js"></script>

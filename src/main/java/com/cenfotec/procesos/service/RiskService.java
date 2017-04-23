@@ -106,102 +106,162 @@ public class RiskService {
             if(risks.get(i).getTag().equals("A1")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 A1s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("A2")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 A2s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("A3")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 A3s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("A4")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 A4s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("A5")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 A5s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("B1")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 B1s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("B2")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 B2s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("B3")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 B3s.add(tagDTO);
             }
 
             if(risks.get(i).getTag().equals("B4")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 B4s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("B5")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 B5s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("C1")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 C1s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("C2")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 C2s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("C3")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 C3s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("C4")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 C4s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("C5")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 C5s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("D1")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 D1s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("D2")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 D2s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("D3")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 D3s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("D4")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 D4s.add(tagDTO);
             }
             if(risks.get(i).getTag().equals("D5")){
                 tagDTO.setId(risks.get(i).getId());
                 tagDTO.setName(risks.get(i).getName());
+                tagDTO.setProbability(risks.get(i).getProbability());
+                tagDTO.setImpact(risks.get(i).getImpact());
+                tagDTO.setTag(risks.get(i).getTag());
                 D5s.add(tagDTO);
             }
         }

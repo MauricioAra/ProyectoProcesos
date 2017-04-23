@@ -132,4 +132,12 @@ public class TaskResource {
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
 
+    @PostMapping("/tasks/bulk")
+    @Timed
+    public ResponseEntity<Void> bulkTask(@Valid @RequestBody List<TaskDTO> taskDTO) throws URISyntaxException {
+        log.debug("TASKS", taskDTO);
+        taskService.bulkTask(taskDTO);
+        return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, "")).build();
+    }
+
 }

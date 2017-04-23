@@ -16,11 +16,12 @@
             'ui.router',
             'infinite-scroll',
             // jhipster-needle-angularjs-add-module JHipster will add new module here
-            'angular-loading-bar',
             'ngMaterial',
             'angularGrid',
             'md.data.table',
-            'angular-js-xlsx'
+            'angular-js-xlsx',
+            'mgcrea.ngStrap',
+            'ngFileUpload'
         ])
         .run(run);
 

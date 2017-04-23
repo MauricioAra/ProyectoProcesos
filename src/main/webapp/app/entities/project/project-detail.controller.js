@@ -5,13 +5,24 @@
         .module('proyectoProcesosApp')
         .controller('ProjectDetailController', ProjectDetailController);
 
-    ProjectDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Project', 'Company', 'Task', 'Risk','$http','$mdDialog'];
+    ProjectDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Project', 'Company', 'Task', 'Risk','$http','$mdDialog','ProjectFactory','$mdToast'];
 
-    function ProjectDetailController($scope, $rootScope, $stateParams, previousState, entity, Project, Company, Task, Risk,$http,$mdDialog) {
+    function ProjectDetailController($scope, $rootScope, $stateParams, previousState, entity, Project, Company, Task, Risk,$http,$mdDialog,ProjectFactory,$mdToast) {
         var vm = this;
 
         vm.project = entity;
+
         vm.previousState = previousState.name;
+
+        vm.gridOptions = {};
+        vm.gridOptions.data = [];
+        vm.gridOptions.columnDefs = [];
+
+        vm.uno = false;
+        vm.dos = false;
+        vm.tres = false;
+        vm.cuatro = false;
+        vm.cinco = false;
 
         var unsubscribe = $rootScope.$on('proyectoProcesosApp:projectUpdate', function(event, result) {
             vm.project = result;
@@ -19,6 +30,10 @@
         $scope.$on('$destroy', unsubscribe);
 
         function init(){
+            vm.uno = true;
+            vm.dos = true;
+            vm.tres = true;
+            vm.cuatro = true;
             getRisks();
             getTask();
             getRisksMatrix();
@@ -27,31 +42,34 @@
         init();
 
         function getTask(){
-            $http.get('http://localhost:9000/api/tasks/project/'+ vm.project.id)
+            ProjectFactory.getTask(vm.project.id)
                 .success(function(data){
                     vm.tasks = data;
+                    vm.dos = false;
                 });
         }
 
         function getEV(){
-            $http.post('http://localhost:9000/api/projects/calculations/'+ vm.project.id)
+            ProjectFactory.getEV(vm.project.id)
                 .success(function(data){
                     vm.results = data;
-                    console.log(data);
+                    vm.cuatro = false;
                 });
         }
 
         function getRisks(){
-            $http.get('http://localhost:9000/api/risks/project/'+ vm.project.id)
+            ProjectFactory.getRisk(vm.project.id)
                 .success(function(data){
                     vm.risks = data;
+                    vm.uno = false;
                 });
         }
 
         function getRisksMatrix(){
-            $http.get('http://localhost:9000/api/risks/matrix/'+ vm.project.id)
+            ProjectFactory.getMatrix(vm.project.id)
                 .success(function(data){
                     vm.matrix = data;
+                    vm.tres = false;
                 });
         }
 
@@ -93,14 +111,66 @@
             $mdDialog.show(confirm).then(function(result) {
                 var realHour = parseFloat(result);
 
-                $http.get('http://localhost:9000/api/tasks/finished/'+id+'/'+realHour)
+                ProjectFactory.finishTask(id,realHour)
                     .success(function(data){
                         init();
                     });
             }, function() {
-
+                init();
             });
         };
+
+        $scope.read = function (workbook) {
+            var tempList = [];
+            vm.cinco = true;
+            for(var i = 0; i < workbook.length; i++ ){
+                var tempObject = {};
+                tempObject.id = "";
+                tempObject.name = workbook[i].NOMBRE;
+                tempObject.description = workbook[i].DESCRIPCION;
+                tempObject.cost = workbook[i].COSTO;
+                tempObject.time = workbook[i].HORAS;
+                tempObject.realHour = 0;
+                tempObject.status = false;
+                tempObject.projectId = vm.project.id;
+                tempList.push(tempObject);
+            }
+
+            ProjectFactory.upload(tempList)
+                .success(function(data){
+                    init();
+                    vm.cinco = false;
+                    $mdToast.show(
+                        $mdToast.simple()
+                            .textContent('Se registró correctamente')
+                            .position('top','left' )
+                            .hideDelay(3000)
+                    );
+                });
+
+        }
+
+        vm.details = function(ev,object){
+            ProjectFactory.setCurrentRisk(object);
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'app/entities/project/projectRisk.tpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose:true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function(answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+
+        }
+
+
+
+
 
         $scope.limitOptions = [5, 10, 15];
         $scope.options = {
@@ -144,4 +214,22 @@
         };
 
     }
+
+    DialogController.$inject = ['$scope','$mdDialog','$rootScope','ProjectFactory'];
+
+    function DialogController($scope, $mdDialog,$rootScope,ProjectFactory) {
+        var vm = this;
+
+        function init(){
+            $scope.risk = ProjectFactory.getCurrentRisk();
+        }
+        init();
+
+        $scope.cancel = function() {
+            $mdDialog.hide();
+        };
+
+
+    }
+
 })();
