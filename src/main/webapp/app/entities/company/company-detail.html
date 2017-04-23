@@ -79,7 +79,7 @@
     <div class="row">
         <div class="col-md-12">
             <div ng-if="vm.projects.length == 0">
-                <h2 style="text-align:center;color: #CCCCCC;">No existen proyectos registrados.</h2>
+                <h2 style="text-align:center;">No existen proyectos registrados.</h2>
                 <div layout="row" layout-align="center center">
                     <md-button type="button" ui-sref="company.new-project({id:vm.company.id})" class="md-accent md-fab">
                         <md-icon md-svg-src="/content/images/add.svg"></md-icon>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div ng-if="vm.projects.length > 0">
-                <h2 style="text-align:center;color: #CCCCCC;">PROYECTOS</h2>
+                <h2 style="text-align:center;">PROYECTOS</h2>
                 <div layout="row" layout-align="center center">
                     <md-button type="button" ui-sref="company.new-project({id:vm.company.id})" class="md-accent md-fab">
                         <md-icon md-svg-src="/content/images/add.svg"></md-icon>
