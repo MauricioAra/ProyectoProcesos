@@ -68,13 +68,15 @@ public final class PMCalculationsUtil {
 	 */
 	public static double hourlyRateAverage(Set<Task> tasks) {
 		double hourlyRate = 0;
+		double totalHours = 0;
 
 		for (Task task : tasks) {
 			hourlyRate = hourlyRate + task.getCost();
+			totalHours = totalHours + task.getTime();
 		}
 
 		if (hourlyRate != 0) {
-			hourlyRate = hourlyRate / tasks.size();
+			hourlyRate = hourlyRate / totalHours;
 		}
 		return hourlyRate;
 	}
