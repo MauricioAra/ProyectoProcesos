@@ -281,7 +281,7 @@
                 </md-content>
 
                 </md-tab>
-                <md-tab label="Earn value">
+                <md-tab label="Earned value">
                     <md-table-container>
                         <md-content>
                             <md-progress-linear ng-if="vm.cuatro" md-mode="query"></md-progress-linear>
@@ -307,12 +307,12 @@
 
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Schedule Variance</th>
-                                    <td md-cell><strong>$ {{vm.results.scheduleVariance | number}}</strong></td>
+                                    <td md-cell><strong>{{vm.results.scheduleVariance | number}}</strong></td>
                                 </tr>
 
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Cost Variance</th>
-                                    <td md-cell><strong>{{vm.results.costVariance | number}}</strong></td>
+                                    <td md-cell><strong>$ {{vm.results.costVariance | number}}</strong></td>
                                 </tr>
 
                                 <tr md-row>

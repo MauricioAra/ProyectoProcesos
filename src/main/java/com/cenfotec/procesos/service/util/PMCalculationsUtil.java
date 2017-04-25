@@ -111,8 +111,8 @@ public final class PMCalculationsUtil {
 	 * @param tasks
 	 * @return
 	 */
-	public static double projectCompletionPercent(Set<Task> tasks) {
-		double projectCompletionPercent = 0;
+	public static float projectCompletionPercent(Set<Task> tasks) {
+		float projectCompletionPercent = 0;
 		int totalTasks = tasks.size();
 		int completedTasks = 0;
 
@@ -121,8 +121,8 @@ public final class PMCalculationsUtil {
 				completedTasks = completedTasks + 1;
 			}
 		}
-		projectCompletionPercent = totalTasks * completedTasks;
-		projectCompletionPercent = projectCompletionPercent / 100;
+
+		projectCompletionPercent = (float) completedTasks / totalTasks;
 
 		return projectCompletionPercent;
 	}
