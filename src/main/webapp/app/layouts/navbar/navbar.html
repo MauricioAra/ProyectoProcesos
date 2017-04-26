@@ -10,10 +10,10 @@
             <a class="navbar-brand logo" ng-click="vm.collapseNavbar()">
             </a>
         </div>
-        <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
+        <div ng-switch="vm.isAuthenticated()">
             <ul class="nav navbar-nav navbar-right">
                 <li ui-sref-active="active">
-                    <a class="white" ui-sref="companies" ng-click="vm.collapseNavbar()">
+                    <a class="white" ui-sref="company">
                         <span class="glyphicon glyphicon-home"></span>
                         <span class="hidden-sm">Compañias</span>
                     </a>
