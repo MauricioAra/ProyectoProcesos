@@ -22,7 +22,7 @@
                     <div class="col-md-6">
                         <div class="row form-detail">
                             <div class="col-md-6">
-                                <dt><span>Name:</span></dt>
+                                <dt><span>Nombre:</span></dt>
                             </div>
                             <div class="col-md-6">
                                 <span>{{vm.project.name}}</span>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="row form-detail">
                             <div class="col-md-6">
-                                <dt><span>Description:</span></dt>
+                                <dt><span>Descripción:</span></dt>
                             </div>
                             <div class="col-md-6">
                                 <span>{{vm.project.description}}</span>
@@ -293,16 +293,16 @@
                                 </tr>
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Planned Value</th>
-                                    <td md-cell><strong>$ {{vm.results.plannedValue | number}}</strong></td>
+                                    <td md-cell><strong>{{vm.results.plannedValue | currency:'USD':true}}</strong></td>
                                 </tr>
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Earned Value</th>
-                                    <td md-cell><strong>$ {{vm.results.earnedValue | number}}</strong></td>
+                                    <td md-cell><strong>{{vm.results.earnedValue | currency:'USD':true}}</strong></td>
                                 </tr>
 
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Actual Cost</th>
-                                    <td md-cell><strong>$ {{vm.results.actualCost | number}}</strong></td>
+                                    <td md-cell><strong>{{vm.results.actualCost | currency:'USD':true}}</strong></td>
                                 </tr>
 
                                 <tr md-row>
@@ -312,7 +312,7 @@
 
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">Cost Variance</th>
-                                    <td md-cell><strong>$ {{vm.results.costVariance | number}}</strong></td>
+                                    <td md-cell><strong>{{vm.results.costVariance | currency:'USD':true}}</strong></td>
                                 </tr>
 
                                 <tr md-row>
@@ -326,7 +326,7 @@
                                 </tr>
                                 <tr md-row>
                                     <th md-column style="background-color: #34495e; color: white; font-size: 14px; border: 1px solid white; border-left-color: transparent">EAC</th>
-                                    <td md-cell><strong>$ {{vm.results.eac | number}}</strong></td>
+                                    <td md-cell><strong>{{vm.results.eac | currency:'USD':true}}</strong></td>
                                 </tr>
                                 </thead>
                             </table>
